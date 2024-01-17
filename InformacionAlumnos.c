@@ -50,18 +50,42 @@ int main() {
     } while (opcion != 3);
     return 0;
 }
+//Agregamos la funcion para que el programa imprima los datos guardados que ingreso el ususario
+void mostrarInformacion(struct InformacionAlumnos alumnos[], int CantAlumnos)
+{
+    if (CantAlumnos > 0)
+    {
+        printf("\nInformacion de los alumnos:\n");
+        for (int i = 0; i < CantAlumnos; i++)
+        {
+            printf("\nAlumno %d:\n", i + 1);
+            printf("Nombre : ");
+            puts(alumnos[i].nombre);//Se agrego la funcion puts para inprimier cadenas
+            printf("Direccion: ");
+            puts(alumnos[i].direccion);
+            printf("numero de Matricula: %d\n", alumnos[i].matricula);
+            printf("Nombre Carrera: ");
+            puts(alumnos[i].carrera);
+            printf("Nota del Promedio: %.2f\n", alumnos[i].promedio);
+        }
+    }
+    else
+    {
+        printf("No hay datos para mostrar.\n");
+    }
+}
 // Comenzamos creando las funciones que usaremos para determinar que vamos a ingresar dependiendo de la opcion que se realice cuando realicemos el menu"
 // En este caso es el ingreso de datos para llenar
 void ingresarInformacion(struct InformacionAlumnos alumnos[], int *CantAlumnos)
 {
     if (*CantAlumnos < MaximoAlumnos)
     {
-        printf("\nIngrese la matricula correspondiente: ");
-        scanf("%d", &alumnos[*CantAlumnos].matricula);
-        
         printf("Ingrese el nombre de este alumno: ");
         fflush(stdin);//Aqui agregamos la funcion fflush para limpiar el buffer y no nos marque error con las funciones gets y puts
         gets(alumnos[*CantAlumnos].nombre);
+
+        printf("\nIngrese la matricula correspondiente: ");
+        scanf("%d", &alumnos[*CantAlumnos].matricula);
 
         printf("Ingrese la direccion: ");
         fflush(stdin);
@@ -75,7 +99,7 @@ void ingresarInformacion(struct InformacionAlumnos alumnos[], int *CantAlumnos)
         scanf("%f", &alumnos[*CantAlumnos].promedio);
 
         (*CantAlumnos)++;
-        printf("\tDatos guardados correctamente.\n");
+        printf("\tDatos guardados.\n");
     }
     else
     {
@@ -83,23 +107,4 @@ void ingresarInformacion(struct InformacionAlumnos alumnos[], int *CantAlumnos)
     }
 }
 
-void mostrarInformacion(struct InformacionAlumnos alumnos[], int CantAlumnos)
-{
-    if (CantAlumnos > 0)
-    {
-        printf("\nInformacion de los alumnos:\n");
-        for (int i = 0; i < CantAlumnos; i++)
-        {
-            printf("\nAlumno %d:\n", i + 1);
-            printf("Matricula: %d\n", alumnos[i].matricula);
-            printf("Nombre: %s\n", alumnos[i].nombre);
-            printf("Direccion: %s\n", alumnos[i].direccion);
-            printf("Carrera: %s\n", alumnos[i].carrera);
-            printf("Promedio: %.2f\n", alumnos[i].promedio);
-        }
-    }
-    else
-    {
-        printf("No hay datos para mostrar.\n");
-    }
-}
+
