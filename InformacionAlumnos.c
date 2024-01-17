@@ -8,18 +8,20 @@
 #define MaximoCarrera 50
 
 
-int main (){
-
+struct InformacionAlumnos//Creamos una extructura para acceder de manera mas puntual a los datos y poder trabjar de mejor manera
+{
     int matricula;
     char nombre[MaximoNombre];
     char direccion[MaximoDireccion];
     char carrera[MaximoCarrera];
     float promedio;
+};
 
-
-
-
-
-
-    return 0;
-}
+//Comenzamos creando las funciones que usaremos para determinar que vamos a ingresar dependiendo de la opcion que se realice cuando realicemos el menu"
+//En este caso es el ingreso de datos para llenar
+void ingresarInformacion(struct InformacionAlumnos alumnos[], int *CantAlumnos) {
+    if (*CantAlumnos < MaximoAlumnos) {
+        printf("\nIngrese la matricula del nuevo alumno: ");
+        scanf("%d", &alumnos[*CantAlumnos].matricula);
+    }
+}  
