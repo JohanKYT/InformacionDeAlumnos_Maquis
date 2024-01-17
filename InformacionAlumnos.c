@@ -34,7 +34,7 @@ int main() {
 
         fflush(stdin);  
         // Limpiar el bufer después de cada lectura Para evitar que de errores de memoria 
-        switch (opcion) {
+        switch (opcion) {//Dependiendo la opcion aqui se realizara un determinado proceso
             case 1:
                 ingresarInformacion(alumnos, &CantAlumnos);
                 break;
@@ -62,16 +62,16 @@ void mostrarInformacion(struct InformacionAlumnos alumnos[], int CantAlumnos)
             printf("Nombre : ");
             puts(alumnos[i].nombre);//Se agrego la funcion puts para inprimier cadenas
             printf("Direccion: ");
-            puts(alumnos[i].direccion);
+            puts(alumnos[i].direccion);//Se agrego la funcion puts para inprimier cadenas
             printf("numero de Matricula: %d\n", alumnos[i].matricula);
             printf("Nombre Carrera: ");
-            puts(alumnos[i].carrera);
+            puts(alumnos[i].carrera);//Se agrego la funcion puts para inprimier cadenas
             printf("Nota del Promedio: %.2f\n", alumnos[i].promedio);
         }
     }
     else
     {
-        printf("No hay datos para mostrar.\n");
+        printf("No hay datos para mostrar.\n");//Este mensaje se mostrara si es que aun no se ingresa ningun dato
     }
 }
 // Comenzamos creando las funciones que usaremos para determinar que vamos a ingresar dependiendo de la opcion que se realice cuando realicemos el menu"
@@ -103,7 +103,7 @@ void ingresarInformacion(struct InformacionAlumnos alumnos[], int *CantAlumnos)
     }
     else
     {
-        printf("Se alcanzo el limite.\n");
+        printf("Se alcanzo el limite.\n");//Se indica que impprima si es que ya se alcanzo el limite preestabecido al principio
     }
 }
 
